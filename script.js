@@ -66,3 +66,40 @@ function imgAuto() {
   // console.log(index);
 }
 setInterval(imgAuto, 5000);
+
+// slider product
+const rightBtnTwo = document.querySelector(
+  ".fa-solid.fa-chevron-right.fa-chevron-right-two",
+);
+const leftBtnTwo = document.querySelector(
+  ".fa-solid.fa-chevron-left.fa-chevron-left-two",
+);
+const imgNumberTwo = document.querySelectorAll(
+  ".slider-product-one-content-items",
+);
+
+// console.log(rightBtnTwo);
+// console.log(leftBtnTwo);
+
+rightBtnTwo.addEventListener("click", function () {
+  index = index + 1;
+  if (index > imgNumberTwo.length - 1) {
+    index = 0;
+  }
+  document.querySelector(
+    ".slider-product-one-content-items-content",
+  ).style.right = index * 100 + "%";
+  removeActive();
+  titleImgLi[index].classList.add("active");
+});
+leftBtnTwo.addEventListener("click", function () {
+  index = index - 1;
+  if (index <= 0) {
+    index = imgNumberTwo.length - 1;
+  }
+  document.querySelector(
+    ".slider-product-one-content-items-content",
+  ).style.right = index * 100 + "%";
+  removeActive();
+  titleImgLi[index].classList.add("active");
+});
